@@ -1,5 +1,6 @@
 "use strict";
 const { Model } = require("sequelize");
+const bcrypt = require('bcryptjs')
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -49,6 +50,13 @@ module.exports = (sequelize, DataTypes) => {
   );
   User.beforeValidate((user, option)=>{
     user.role = 'Buyer'
+  })
+  User.afterValidate(async (user,option)=>{
+    const salt = await bcrypt.genSalt(10)
+
+    const hashed = await bcrypt.hash(user.password, salt)
+
+    user.password = hashed
   })
   return User;
 };
