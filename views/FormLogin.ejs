@@ -1,5 +1,8 @@
 <%- include('partials/header', {title: 'LOGIN'}) %>
   <h3>Youverse Account Log in</h3>
+  <% if (error) { %>
+   <p style="color: red"><%= error %></p>
+  <% } %>
   <form action="" method="post">
     <label>Email</label><br>
     <input type="text" name="email" placeholder="your@email.com"><br><br>
@@ -7,5 +10,6 @@
     <input type="password" name="password" placeholder="password"><br><br>
     <input type="submit" value="Login">
   </form>
+
 
 <%- include('partials/footer') %>

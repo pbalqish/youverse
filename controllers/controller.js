@@ -33,7 +33,8 @@ class Controller {
 
   static async renderLogin(req, res) {
     try {
-      res.render("FormLogin");
+      const { error } = req.query
+      res.render("FormLogin", { error });
     } catch (error) {
       console.log(error);
       res.send(error);
@@ -49,10 +50,10 @@ class Controller {
         if (isPasswordValid) {
           return res.redirect("/");
         }
-        const errorMessage = `Email or Password is not correct`;
+        const errorMessage = `Invalid Email/Password`;
         return res.redirect(`/login?error=${errorMessage}`);
       }
-      const errorMessage = `Email or Password is not correct`;
+      const errorMessage = `Invalid Email/Password`;
       return res.redirect(`/login?error=${errorMessage}`);
     } catch (error) {
       console.log(error);
@@ -62,7 +63,9 @@ class Controller {
 
   static async renderSignUp(req, res) {
     try {
-      res.render("FormSignUp");
+      const errors = req.query.errors.split(',')
+      console.log(req.query);
+      res.render("FormSignUp", { errors });
     } catch (error) {
       console.log(error);
       res.send(error);
@@ -96,6 +99,10 @@ class Controller {
       res.redirect("/login");
     } catch (error) {
       console.log(error);
+      if (error.name === 'SequelizeValidationError') {
+        const errMess = error.errors.map(e => e.message)
+        return res.redirect(`/signup?errors=${errMess}`)
+      }
       res.send(error);
     }
   }
