@@ -1,5 +1,6 @@
 "use strict";
 const { Model } = require("sequelize");
+const formatCurrencyToUSD = require('../helpers/formatCurrency');
 module.exports = (sequelize, DataTypes) => {
   class Product extends Model {
     /**
@@ -7,10 +8,23 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
+
+    get priceUSD(){
+      return formatCurrencyToUSD(this.price);
+    }
+
+    static async getProductByCatgeory(category){
+      const products = await Product.findAll({
+        include : sequelize.models.Category,
+        where : category ? {CategoryId: category} : {},
+        order : [['id', 'ASC']]
+      })
+      return products
+    }
+    
     static associate(models) {
       Product.belongsTo(models.Category);
-      Product.hasMany(models.Order);
-      // define association here
+      Product.belongsToMany(models.User, {through: models.Order})
     }
   }
   Product.init(
