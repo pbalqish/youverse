@@ -134,6 +134,31 @@ class Controller {
       
     }
   }
+
+  static async renderAddProduct(req,res){
+    try {
+      const categories = await Category.findAll()
+      res.render("AddProduct", {categories})
+    } catch (error) {
+      console.log(error);
+      res.send(error)
+    }
+  }
+
+  static async handleAddProduct(req,res){
+    try {
+      const { name, price, stock, description, CategoryId } = req.body
+      const { filename } = req.file
+
+      await Product.create({name, price, stock, description, CategoryId, image: filename})
+      res.redirect('/')
+      console.log(req.body);
+      console.log(req.file.filename);
+    } catch (error) {
+      console.log(error);
+      res.send(error)
+    }
+  }
 }
 
 module.exports = Controller;

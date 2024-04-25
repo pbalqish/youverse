@@ -51,6 +51,8 @@ router.get('/', isLoggedIn, Controller.renderHome);
 router.get('/admin', isAdmin, Controller.renderHomeAdmin);
 
 //other routes
+router.get('/admin/product/add', Controller.renderAddProduct)
+router.post('/admin/product/add', Controller.handleAddProduct)
 router.get('/products/:id', Controller.renderProductDetail)
 router.get('/profile', Controller.getProfile)
 

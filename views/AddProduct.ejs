@@ -1,0 +1,23 @@
+<%- include('partials/headadmin', {title: 'Add Product'}) %>
+  <h1>Add Product</h1>
+  <form action="/admin/product/add" method="post" enctype="multipart/form-data">
+    <label>Name</label><br>
+    <input type="text" name="name"><br><br>
+    <label>Price</label><br>
+    <input type="text" name="price"><br><br>
+    <label>Stock</label><br>
+    <input type="number" name="stock"><br><br>
+    <label>Image</label><br>
+    <input type="file" name="public"><br><br>
+    <label>Description</label><br>
+    <textarea name="description" cols="40" rows="20"></textarea><br><br>
+    <label>Category</label>
+    <select name="CategoryId">
+      <option value="">Choose..</option>
+      <% categories.forEach(c => { %>
+        <option value="<%= c.id %>"><%= c.name %></option>
+      <% }) %>
+    </select>
+    <input type="submit" value="Add">
+  </form>
+<%- include('partials/footer') %>
