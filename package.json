@@ -9,6 +9,7 @@
   "author": "Youverse team",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "ejs": "^3.1.10",
     "express": "^4.19.2",
     "pg": "^8.11.5",
