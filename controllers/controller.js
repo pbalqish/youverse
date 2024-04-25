@@ -13,7 +13,7 @@ class Controller {
   static async renderHome(req, res) {
     try {
       const products = await Product.findAll();
-      res.render("Home", { products, formatCurrencyToUSD });
+      res.render("Home", { products });
     } catch (error) {
       console.log(error);
       res.send(error);
@@ -24,7 +24,7 @@ class Controller {
     try {
       const { id } = req.params;
       const product = await Product.findByPk(id);
-      res.render("ProductDetail", { product, formatCurrencyToUSD });
+      res.render("ProductDetail", { product });
     } catch (error) {
       console.log(error);
       res.send(error);
@@ -44,18 +44,27 @@ class Controller {
   static async handleLogin(req, res) {
     try {
       const { email, password } = req.body;
+
       const user = await User.findOne({ where: { email } });
+
       if (user) {
         const isPasswordValid = await bcrypt.compare(password, user.password);
+
         if (isPasswordValid) {
+
+          req.session.userId = user.id
+          req.session.role = user.role
           return res.redirect("/");
         }
+
         const errorMessage = `Invalid Email/Password`;
         return res.redirect(`/login?error=${errorMessage}`);
       }
+
       const errorMessage = `Invalid Email/Password`;
       return res.redirect(`/login?error=${errorMessage}`);
     } catch (error) {
+
       console.log(error);
       res.send(error);
     }
@@ -63,7 +72,10 @@ class Controller {
 
   static async renderSignUp(req, res) {
     try {
-      const errors = req.query.errors.split(',')
+      let errors = []
+      if (req.query.errors) {
+        errors = req.query.errors.split(',')
+      }
       console.log(req.query);
       res.render("FormSignUp", { errors });
     } catch (error) {
@@ -112,6 +124,14 @@ class Controller {
     } catch (error) {
       console.log(error);
       res.send(error);
+    }
+  }
+
+  static async renderHomeAdmin(req, res){
+    try {
+      
+    } catch (error) {
+      
     }
   }
 }

@@ -1,0 +1,17 @@
+<%- include('partials/headadmin', {title: 'Admin'}) %>
+
+<table>
+  <% products.forEach(p => { %>
+    <tr>
+      <td>
+        <a href="/products/<%= p.id %>">
+          <img src="<%= p.image %>" alt="<%= p.name %>" width="150px">
+        </a>
+      </td>
+      <td><%= p.name %></td>
+      <td><%= p.priceUSD %></td>
+    </tr>
+  <% }) %>
+</table>
+
+<%- include('partials/footer') %>

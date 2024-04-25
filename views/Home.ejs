@@ -1,4 +1,4 @@
-<%- include('partials/header', {title: 'Home'}) %>
+<%- include('partials/headuni', {title: 'Home'}) %>
 
   <table>
     <% products.forEach(p => { %>
@@ -9,7 +9,7 @@
           </a>
         </td>
         <td><%= p.name %></td>
-        <td><%= formatCurrencyToUSD(p.price) %></td>
+        <td><%= p.priceUSD %></td>
       </tr>
     <% }) %>
   </table>
