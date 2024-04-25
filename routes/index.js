@@ -53,6 +53,12 @@ router.get('/admin', isAdmin, Controller.renderHomeAdmin);
 //other routes
 router.get('/admin/product/add', Controller.renderAddProduct)
 router.post('/admin/product/add', Controller.handleAddProduct)
+
+router.get('/admin/product/:id/edit', Controller.renderEditProduct)
+router.post('/admin/product/:id/edit', Controller.handleEditProduct)
+
+router.get('/admin/product/:id/delete', Controller.handleDeleteProduct)
+
 router.get('/products/:id', Controller.renderProductDetail)
 router.get('/profile', Controller.getProfile)
 

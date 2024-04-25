@@ -8,6 +8,7 @@ const {
 } = require("../models/index");
 const formatCurrencyToUSD = require("../helpers/formatCurrency");
 const bcrypt = require("bcryptjs");
+const { where } = require("sequelize");
 
 class Controller {
   static async renderHome(req, res) {
@@ -152,8 +153,51 @@ class Controller {
 
       await Product.create({name, price, stock, description, CategoryId, image: filename})
       res.redirect('/')
-      console.log(req.body);
-      console.log(req.file.filename);
+    } catch (error) {
+      console.log(error);
+      res.send(error)
+    }
+  }
+
+  static async renderEditProduct(req,res){
+    try {
+      const { id } = req.params
+      const categories = await Category.findAll()
+      const product = await Product.findByPk(id)
+      res.render("EditProduct", {product, categories})
+    } catch (error) {
+      console.log(error);
+      res.send(error)
+    }
+  }
+
+  static async handleEditProduct(req,res){
+    try {
+      const { id } = req.params
+      const { name, price, stock, description, CategoryId } = req.body
+      const { filename } = req.file
+
+      await Product.update({name, price, stock, description, CategoryId, image: filename}, {
+        where: {
+          id
+        }
+      })
+      res.redirect('/')
+    } catch (error) {
+      console.log(error);
+      res.send(error)
+    }
+  }
+
+  static async handleDeleteProduct(req,res){
+    try {
+      const { id } = req.params
+      await Product.destroy({
+        where: {
+          id
+        }
+      })
+      res.redirect('/')
     } catch (error) {
       console.log(error);
       res.send(error)
