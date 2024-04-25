@@ -1,119 +1,110 @@
 [
   {
     "id": 1,
-    "name": "lorem",
-    "description": "ipsum",
-    "price": 2000,
+    "name": "NewJeans 2nd EP 'Get Up' Bunny Beach Bag ver. (Set)",
+    "description": "DETAIL:\r\n- OUTBOX : 6 Versions / W215 X H227 X T38 mm\r\n- BAG : 3 Versions / W210 X H220 X T35 mm\r\n- INNER BOX : 3 Versions / W200 X H135 X T29 mm / 1 out of 3 Random\r\n- PHOTOBOOK : 1 Version (1 PHOTOBOOK) / 6 Versions/1SET (2 PHOTOBOOKS) / W129 X H194 mm / 84p each\r\n- LYRICS : 1 Version / W129 X H 194 mm / 24p\r\n- POSTCARD : 6 Versions/1SET (5 POSTCARDS) / W100 X H150 mm\r\n- BOOKMARK : 6 Versions / W100 X H70 mm\r\n- STICKER : 6 Versions/1SET (2ea) / W124 X H189 mm\r\n- STICKER : 1 Version / W124 X H189 mm\r\n- PHOTOCARD : 6 Versions/1SET (5ea) / W55 X H85 mm\r\n- CD-R : 6 Versions / W125 X H125 mm",
+    "price": 98.39,
     "stock": 24,
-    "image": "test",
-    "CategoryId": 3
+    "image": "/assets/album-newjeans.png",
+    "CategoryId": 1
   },
   {
     "id": 2,
-    "name": "lorem",
-    "description": "ipsum",
-    "price": 2000,
-    "stock": 24,
-    "image": "test",
-    "CategoryId": 3
+    "name": "Proof (Set)",
+    "description": "DETAIL:\r\n- 1 TYPE\r\n- OUTER BOX: 1 TYPE / W 188 x L 250 x H 59 (mm)\r\n- THE ART OF PROOF: 1 TYPE / W 170 x H 238 (mm) / 132 Pages\r\n- PHOTOGRAPH: 1 TYPE / W 170 x H 238 (mm) / 104 Pages\r\n- EPILOGUE: 1 TYPE / W 170 x H 238 (mm) / 80 pages\r\n- LYRICS: 1 TYPE / W 170 x H 238 (mm) / 44 Pages\r\n- CD PLATE: 3 CD\r\n- PHOTOCARD A: 1 SET (7ea)\r\n- PHOTOCARD B: Random 1p out of 8p\r\n- POSTCARD : Random 1p out of 8p",
+    "price": 60.84,
+    "stock": 60,
+    "image": "/assets/album-bts.png",
+    "CategoryId": 1
   },
   {
     "id": 3,
-    "name": "lorem",
-    "description": "ipsum",
-    "price": 2000,
-    "stock": 24,
-    "image": "test",
-    "CategoryId": 3
+    "name": "minisode 3: TOMORROW (Set)",
+    "description": "DETAIL:\r\n- Total of 1 Compact Version\r\n- Package Box: Random 1 out of 5 types / W130 x H175 x D20 (mm)\r\n- Album Stand: 1 type\r\n- Postcard Set: 1 out of 5 types (23 types)\r\n- Lyrics Card Set: 1 set\r\n- Photo Card: Random 1 out of 5 types\r\n- Sticker: Random 1 out of 5 types\r\n- Mini Poster: Random 1 out of 5 types\r\n- CD Envelope: 1 type\r\n- CD-R: Random 1 out of 5 types",
+    "price": 47.47,
+    "stock": 45,
+    "image": "/assets/album-txt.png",
+    "CategoryId": 1
   },
   {
     "id": 4,
-    "name": "lorem",
-    "description": "ipsum",
-    "price": 2000,
-    "stock": 24,
-    "image": "test",
-    "CategoryId": 3
+    "name": "NewJeans Official Light Stick",
+    "description": "DETAIL:\r\n- OUTBOX\r\n- LIGHTSTICK\r\n- STRAP\r\n- DUST BAG\r\n- PHOTOCARD 5EA\r\n- MANUAL",
+    "price": 40.18,
+    "stock": 77,
+    "image": "/assets/merch-newjeans.png",
+    "CategoryId": 2
   },
   {
     "id": 5,
-    "name": "lorem",
-    "description": "ipsum",
-    "price": 2000,
-    "stock": 24,
-    "image": "test",
-    "CategoryId": 3
+    "name": "BTS Official Light Stick Special Edition",
+    "description": "DETAIL:\r\n- OUTBOX\r\n- LIGHTSTICK\r\n- STRAP\r\n- DUST BAG\r\n- PHOTOCARD 5EA\r\n- MANUAL",
+    "price": 31.98,
+    "stock": 44,
+    "image": "/assets/merch-bts.png",
+    "CategoryId": 2
   },
   {
     "id": 6,
-    "name": "lorem",
-    "description": "ipsum",
-    "price": 2000,
-    "stock": 24,
-    "image": "test",
-    "CategoryId": 3
-  },
-  {
-    "id": 6,
-    "name": "lorem",
-    "description": "ipsum",
-    "price": 2000,
-    "stock": 24,
-    "image": "test",
-    "CategoryId": 3
+    "name": "TOMORROW X TOGETHER Official Light Stick",
+    "description": "DETAIL:\r\n- OUTBOX\r\n- LIGHTSTICK\r\n- STRAP\r\n- DUST BAG\r\n- PHOTOCARD 5EA\r\n- MANUAL",
+    "price": 40.18,
+    "stock": 56,
+    "image": "/assets/merch-txt.png",
+    "CategoryId": 2
   },
   {
     "id": 7,
-    "name": "lorem",
-    "description": "ipsum",
-    "price": 2000,
-    "stock": 24,
-    "image": "test",
+    "name": "NewJeans Bunnies MEMBERSHIP",
+    "description": "DETAIL:\r\n- NewJeans Official Fanclub Bunnies Membership (or 'membership') can be purchased year-round. (Membership validity: 365 days after the date of purchase).\r\n- If you cancel your purchase or get a refund for your membership after the renewal, the remaining membership period that was valid before the renewal will not be recovered.",
+    "price": 20.50,
+    "stock": 19,
+    "image": "/assets/membership-newjeans.png",
     "CategoryId": 3
   },
   {
     "id": 8,
-    "name": "lorem",
-    "description": "ipsum",
-    "price": 2000,
-    "stock": 24,
-    "image": "test",
+    "name": "BTS ARMY MEMBERSHIP",
+    "description": "DETAIL:\r\n- You can sign up for an BTS GLOBAL OFFICIAL FANCLUB ARMY MEMBERSHIP('MEMBERSHIP') year-around.(MEMBERSHIP Valid Period: For 365 days from the sign-up date).\r\n- The ARMY MEMBERSHIP GIFT can be purchased separately on the 'ARMY MEMBERSHIP GIFT' product page on Weverse Shop.\r\n- If you cancel (refund) the payment after renewing your MEMBERSHIP , the remaining period for your existing membership will not be recovered.",
+    "price": 20.50,
+    "stock": 33,
+    "image": "/assets/membership-bts.png",
     "CategoryId": 3
   },
   {
     "id": 9,
-    "name": "lorem",
-    "description": "ipsum",
-    "price": 2000,
-    "stock": 24,
-    "image": "test",
+    "name": "TOMORROW X TOGETHER MOA MEMBERSHIP",
+    "description": "DETAIL:\r\n- MOA MEMBERSHIP (or 'membership') can be purchased year-round. (Membership validity: 365 days after the date of purchase).\r\n- If you cancel your purchase or get a refund for your membership after the renewal, the remaining membership period that was valid before the renewal will not be recovered.",
+    "price": 20.50,
+    "stock": 90,
+    "image": "/assets/membership-txt.png",
     "CategoryId": 3
   },
   {
     "id": 10,
-    "name": "lorem",
-    "description": "ipsum",
-    "price": 2000,
-    "stock": 24,
-    "image": "test",
-    "CategoryId": 3
+    "name": "NewJeans Yearbook 22-23",
+    "description": "DETAIL:\r\n- PHOTO BUNDLE. Size: 180x255mmㅣ160p. ENVELOPE Size: 200x310mm. BULLDOG CLIP Size: 40x35x23mm\r\n- BUNNIES CAMP PHOTOBOOK. Size: 210x297mmㅣ76p\r\n- BUNNIES CAMP HANDBOOK. Size: 125x170mmㅣ20p\r\n- LETTERS TO BUNNIES 125x170mmㅣ5ea\r\n- POLAROID BOOK. Size: 156x156mmㅣ90p\r\n- PHOTO ZINE. Size: 297x420mmㅣ12p\r\n- PHOTOCARDS. Size: 55x85mmㅣ20ea. ENVELOPE Size: 65x95mm\r\n- PHOTOS. Size: 152x102mmㅣ7ea. ENVELOPE Size: 162x112mm\r\n- STICKER PACK. Size: 70x70mmㅣ7ea\r\n- DIGITAL CODE CARD. CARD Size: 85x55mm",
+    "price": 49.19,
+    "stock": 78,
+    "image": "/assets/dvd-newjeans.png",
+    "CategoryId": 4
   },
   {
     "id": 11,
-    "name": "lorem",
-    "description": "ipsum",
-    "price": 2000,
+    "name": "BTS FESTA D-DAY CALENDAR : Celebration of The 8th Anniversary",
+    "description": "DETAIL: \r\n- Welcome Kit (Paper Door Sign, Sticker, Dice Paper Ver)\r\n- Outbox\r\n- D-12 Golden Ticket : 1ea\r\n- D-11 Badge : 1ea\r\n- D-10 Poster : 5ea\r\n- D-9 Photocard : 7ea\r\n- D-8 Message Photo : 11ea\r\n- D-7 Postcard Group : 7ea\r\n- D-6 Photocard : 7ea\r\n- D-5 Accordion : 1ea\r\n- D-4 Playroom Group : 8ea\r\n- D-3 Photocard : 7ea\r\n- D-2 Photocard : 7ea\r\n- D-1 Folded Book : 1ea\r\n- D-Day Photocard : 1ea",
+    "price": 34.44,
     "stock": 24,
-    "image": "test",
-    "CategoryId": 3
+    "image": "/assets/dvd-bts.png",
+    "CategoryId": 4
   },
   {
     "id": 12,
-    "name": "lorem",
-    "description": "ipsum",
-    "price": 2000,
+    "name": "TOMORROW X TOGETHER MEMORIES : THIRD STORY DVD",
+    "description": "DETAIL:\r\n- 236p photobook.\r\n- 1 folding poster.\r\n- 4 dvd.\r\n- 1 postcard set.\r\n- 1 random photocard.",
+    "price": 40.18,
     "stock": 24,
-    "image": "test",
-    "CategoryId": 3
+    "image": "/assets/dvd-txt.png",
+    "CategoryId": 4
   }
 ]
