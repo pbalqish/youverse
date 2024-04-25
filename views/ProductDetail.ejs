@@ -1,0 +1,8 @@
+<%- include('partials/header', {title: 'Product Detail'}) %>
+  <img src="<%= product.image %>" alt="<%= product.name %>" width="150em">
+  <h2><%= product.name %></h2>
+  <h3><%= formatCurrencyToUSD(product.price) %></h3>
+  <a href=""><button>Buy</button></a>
+  <p>Stock : <%= product.stock %></p>
+  <a href=""><button>BUY</button></a>
+<%- include('partials/footer') %>
