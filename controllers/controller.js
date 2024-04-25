@@ -1,52 +1,107 @@
-const { Category, Order, Product, Profile, User } = require('../models/index')
-const formatCurrencyToUSD = require('../helpers/formatCurrency')
+const {
+  Category,
+  Order,
+  Product,
+  Profile,
+  User,
+  sequelize,
+} = require("../models/index");
+const formatCurrencyToUSD = require("../helpers/formatCurrency");
+const bcrypt = require("bcryptjs");
 
-class Controller{
-  static async renderHome(req, res){
+class Controller {
+  static async renderHome(req, res) {
     try {
-      const products = await Product.findAll()
-      res.render('Home', {products, formatCurrencyToUSD})
+      const products = await Product.findAll();
+      res.render("Home", { products, formatCurrencyToUSD });
     } catch (error) {
       console.log(error);
       res.send(error);
     }
   }
 
-  static async renderProductDetail(req, res){
+  static async renderProductDetail(req, res) {
     try {
-      const { id } = req.params
-      const product = await Product.findByPk(id)
-      res.render('ProductDetail', {product, formatCurrencyToUSD})
+      const { id } = req.params;
+      const product = await Product.findByPk(id);
+      res.render("ProductDetail", { product, formatCurrencyToUSD });
     } catch (error) {
       console.log(error);
       res.send(error);
     }
   }
 
-  static async renderLogin(req, res){
+  static async renderLogin(req, res) {
     try {
-      res.render('FormLogin')
+      res.render("FormLogin");
     } catch (error) {
       console.log(error);
       res.send(error);
     }
   }
 
-  static async renderSignUp(req, res){
+  static async handleLogin(req, res) {
     try {
-      res.render('FormRegister')
+      const { email, password } = req.body;
+      const user = await User.findOne({ where: { email } });
+      if (user) {
+        const isPasswordValid = await bcrypt.compare(password, user.password);
+        if (isPasswordValid) {
+          return res.redirect("/");
+        }
+        const errorMessage = `Email or Password is not correct`;
+        return res.redirect(`/login?error=${errorMessage}`);
+      }
+      const errorMessage = `Email or Password is not correct`;
+      return res.redirect(`/login?error=${errorMessage}`);
     } catch (error) {
       console.log(error);
       res.send(error);
     }
   }
 
-  static async handleSignUp(req, res){
+  static async renderSignUp(req, res) {
     try {
-      const { fullName, email, username, password } = req.body
-      await Profile.create({fullName})
-      await User.create({email, username, password})
-      // res.redirect()
+      res.render("FormSignUp");
+    } catch (error) {
+      console.log(error);
+      res.send(error);
+    }
+  }
+
+  static async handleSignUp(req, res) {
+    try {
+      await sequelize.transaction(async (t) => {
+        const { fullName, email, username, password } = req.body;
+        const user = await User.create(
+          {
+            email,
+            username,
+            password,
+          },
+          {
+            transaction: t,
+          }
+        );
+        await Profile.create(
+          {
+            fullName,
+            UserId: user.id,
+          },
+          {
+            transaction: t,
+          }
+        );
+      });
+      res.redirect("/login");
+    } catch (error) {
+      console.log(error);
+      res.send(error);
+    }
+  }
+
+  static async getProfile() {
+    try {
     } catch (error) {
       console.log(error);
       res.send(error);
