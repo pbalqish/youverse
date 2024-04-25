@@ -1,0 +1,119 @@
+[
+  {
+    "id": 1,
+    "name": "lorem",
+    "description": "ipsum",
+    "price": 2000,
+    "stock": 24,
+    "image": "test",
+    "CategoryId": 3
+  },
+  {
+    "id": 2,
+    "name": "lorem",
+    "description": "ipsum",
+    "price": 2000,
+    "stock": 24,
+    "image": "test",
+    "CategoryId": 3
+  },
+  {
+    "id": 3,
+    "name": "lorem",
+    "description": "ipsum",
+    "price": 2000,
+    "stock": 24,
+    "image": "test",
+    "CategoryId": 3
+  },
+  {
+    "id": 4,
+    "name": "lorem",
+    "description": "ipsum",
+    "price": 2000,
+    "stock": 24,
+    "image": "test",
+    "CategoryId": 3
+  },
+  {
+    "id": 5,
+    "name": "lorem",
+    "description": "ipsum",
+    "price": 2000,
+    "stock": 24,
+    "image": "test",
+    "CategoryId": 3
+  },
+  {
+    "id": 6,
+    "name": "lorem",
+    "description": "ipsum",
+    "price": 2000,
+    "stock": 24,
+    "image": "test",
+    "CategoryId": 3
+  },
+  {
+    "id": 6,
+    "name": "lorem",
+    "description": "ipsum",
+    "price": 2000,
+    "stock": 24,
+    "image": "test",
+    "CategoryId": 3
+  },
+  {
+    "id": 7,
+    "name": "lorem",
+    "description": "ipsum",
+    "price": 2000,
+    "stock": 24,
+    "image": "test",
+    "CategoryId": 3
+  },
+  {
+    "id": 8,
+    "name": "lorem",
+    "description": "ipsum",
+    "price": 2000,
+    "stock": 24,
+    "image": "test",
+    "CategoryId": 3
+  },
+  {
+    "id": 9,
+    "name": "lorem",
+    "description": "ipsum",
+    "price": 2000,
+    "stock": 24,
+    "image": "test",
+    "CategoryId": 3
+  },
+  {
+    "id": 10,
+    "name": "lorem",
+    "description": "ipsum",
+    "price": 2000,
+    "stock": 24,
+    "image": "test",
+    "CategoryId": 3
+  },
+  {
+    "id": 11,
+    "name": "lorem",
+    "description": "ipsum",
+    "price": 2000,
+    "stock": 24,
+    "image": "test",
+    "CategoryId": 3
+  },
+  {
+    "id": 12,
+    "name": "lorem",
+    "description": "ipsum",
+    "price": 2000,
+    "stock": 24,
+    "image": "test",
+    "CategoryId": 3
+  }
+]
