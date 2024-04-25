@@ -8,7 +8,7 @@ class Controller{
       res.render('Home', {products, formatCurrencyToUSD})
     } catch (error) {
       console.log(error);
-      res.send(error)
+      res.send(error);
     }
   }
 
@@ -19,12 +19,38 @@ class Controller{
       res.render('ProductDetail', {product, formatCurrencyToUSD})
     } catch (error) {
       console.log(error);
-      res.send(error)
+      res.send(error);
     }
   }
 
-  static async renderAddProduct(req, res){
-    
+  static async renderLogin(req, res){
+    try {
+      res.render('FormLogin')
+    } catch (error) {
+      console.log(error);
+      res.send(error);
+    }
+  }
+
+  static async renderSignUp(req, res){
+    try {
+      res.render('FormRegister')
+    } catch (error) {
+      console.log(error);
+      res.send(error);
+    }
+  }
+
+  static async handleSignUp(req, res){
+    try {
+      const { fullName, email, username, password } = req.body
+      await Profile.create({fullName})
+      await User.create({email, username, password})
+      // res.redirect()
+    } catch (error) {
+      console.log(error);
+      res.send(error);
+    }
   }
 }
 
