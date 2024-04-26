@@ -1,8 +1,11 @@
 <%- include('partials/headuni', {title: 'Product Detail'}) %>
+
   <img src="<%= product.image %>" alt="<%= product.name %>" width="150em">
   <h2><%= product.name %></h2>
   <h3><%= product.priceUSD %></h3>
-  <a href=""><button>Buy</button></a>
+  <textarea name="" id="" cols="100px" rows="20px"><%= product.description %></textarea><br>
   <p>Stock : <%= product.stock %></p>
-  <a href=""><button>BUY</button></a>
+  <a href="/products/<%= product.id%>/buy"><button>Buy</button></a>
+  <!-- <a href=""><button>BUY</button></a> -->
+
 <%- include('partials/footer') %>

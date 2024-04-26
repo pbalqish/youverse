@@ -2,12 +2,12 @@ const router = require('express').Router();
 const Controller = require('../controllers/controller');
 
 // Register
-router.get('/signup', Controller.renderSignUp)
-router.post('/signup', Controller.handleSignUp)
+router.get('/signup', isLoggedOut, Controller.renderSignUp)
+router.post('/signup', isLoggedOut, Controller.handleSignUp)
 
 // Login
-router.get('/login', Controller.renderLogin)
-router.post('/login', Controller.handleLogin)
+router.get('/login', isLoggedOut, Controller.renderLogin)
+router.post('/login', isLoggedOut, Controller.handleLogin)
 
 // router.use(function (req, res, next) {
 //   console.log(req.session);
@@ -18,28 +18,32 @@ router.post('/login', Controller.handleLogin)
 //   next()
 // })
 
+function isLoggedOut(req, res, next) {
+  if (req.session.userId) {
+    res.redirect(`/`)
+  }else{
+    next()
+  }
+}
+
+
+
 const isLoggedIn = function (req, res, next) {
   console.log(req.session);
   if (!req.session.userId) {
     const error = `Please login first`
     res.redirect(`/login?error=${error}`)
+  }else{
+    next()
   }
-  next()
 }
 
 const isAdmin = function (req, res, next) {
   console.log(req.session);
-  if (req.session.userId) {
-    if (req.session.role === 'admin') {
-      res.redirect('/admin')
-      next()
-    } else {
-      res.redirect('/buyer')
-      next()
-    }
+  if (req.session.role === 'admin') {
+    next()
   } else {
-    const error = `Please login first`
-    res.redirect(`/login?error=${error}`)
+    res.redirect(`/`)
   }
 }
 
@@ -54,11 +58,13 @@ const isAdmin = function (req, res, next) {
 
 
 // Home
-router.get('/', isAdmin, Controller.renderHome);
-router.get('/admin', isAdmin, Controller.renderHomeAdmin);
+router.get('/', Controller.renderHome);
 
+router.use(isLoggedIn)
+
+router.get('/admin', Controller.renderHomeAdmin);
 //other routes
-router.get('/admin/product/add', Controller.renderAddProduct)
+router.get('/admin/product/add', isAdmin, Controller.renderAddProduct)
 router.post('/admin/product/add', Controller.handleAddProduct)
 
 router.get('/admin/product/:id/edit', Controller.renderEditProduct)
@@ -67,7 +73,9 @@ router.post('/admin/product/:id/edit', Controller.handleEditProduct)
 router.get('/admin/product/:id/delete', Controller.handleDeleteProduct)
 
 router.get('/products/:id', Controller.renderProductDetail)
+router.get('/products/:id/buy', Controller.getProductBuy)
 router.get('/profile', Controller.getProfile)
+router.get('/logout', Controller.handleLogout)
 
 
 module.exports = router;

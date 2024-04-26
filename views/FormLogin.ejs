@@ -1,4 +1,11 @@
-<%- include('partials/headuni', {title: 'LOGIN'}) %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Youverse</title>
+</head>
+<body>
   <h3>Youverse Account Log in</h3>
   <% if (error) { %>
    <p style="color: red"><%= error %></p>
@@ -10,6 +17,5 @@
     <input type="password" name="password" placeholder="password"><br><br>
     <input type="submit" value="Login">
   </form>
-
-
-<%- include('partials/footer') %>
+</body>
+</html>

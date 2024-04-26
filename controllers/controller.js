@@ -13,19 +13,31 @@ const { where } = require("sequelize");
 class Controller {
   static async renderHome(req, res) {
     try {
+      const {role} = req.session
       const products = await Product.findAll();
-      res.render("Home", { products });
+      res.render("Home", { products, role });
     } catch (error) {
       console.log(error);
       res.send(error);
     }
   }
 
+  static async getProductBuy(req, res) {
+    try {
+      const {id} =req.params
+      
+    } catch (error) {
+      console.log(error);
+      res.send(error)
+    }
+  }
+
   static async renderProductDetail(req, res) {
     try {
+      const {role} = req.session
       const { id } = req.params;
       const product = await Product.findByPk(id);
-      res.render("ProductDetail", { product });
+      res.render("ProductDetail", { product, role });
     } catch (error) {
       console.log(error);
       res.send(error);
@@ -203,6 +215,17 @@ class Controller {
     } catch (error) {
       console.log(error);
       res.send(error)
+    }
+  }
+
+  static async handleLogout(req, res) {
+    try {
+      req.session.destroy(()=>{
+        console.log(`destroyed`);
+      })
+      res.redirect('/')
+    } catch (error) {
+      
     }
   }
 }
