@@ -29,11 +29,18 @@ const isLoggedIn = function (req, res, next) {
 
 const isAdmin = function (req, res, next) {
   console.log(req.session);
-  if (req.session.userId && req.session.role !== 'admin') {
-    const error = `You have no acceee`
+  if (req.session.userId) {
+    if (req.session.role === 'admin') {
+      res.redirect('/admin')
+      next()
+    } else {
+      res.redirect('/buyer')
+      next()
+    }
+  } else {
+    const error = `Please login first`
     res.redirect(`/login?error=${error}`)
   }
-  next()
 }
 
 // router.use(function (req, res, next) {
@@ -47,7 +54,7 @@ const isAdmin = function (req, res, next) {
 
 
 // Home
-router.get('/', isLoggedIn, Controller.renderHome);
+router.get('/', isAdmin, Controller.renderHome);
 router.get('/admin', isAdmin, Controller.renderHomeAdmin);
 
 //other routes

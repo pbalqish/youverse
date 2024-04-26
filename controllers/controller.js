@@ -130,9 +130,11 @@ class Controller {
 
   static async renderHomeAdmin(req, res){
     try {
-      
+      const products = await Product.findAll();
+      res.render("homeadmin", { products });
     } catch (error) {
-      
+      console.log(error);
+      res.send(error)
     }
   }
 
